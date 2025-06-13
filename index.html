@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recomendador de Viagens!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Reset e base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      color: #333;
+      overflow: hidden; /* Desabilitar rolagem */
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-user-drag: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+    }
+
+    /* Desabilitar rolagem com fallback em JS */
+    body.noscroll {
+      overflow: hidden;
+    }
+
+    main {
+      height: 100vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 32px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      scroll-behavior: smooth;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #1a535c;
+      user-select: text;
+    }
+
+    .card {
+      background: rgba(255 255 255 / 0.85);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      cursor: default;
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover {
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      max-height: 280px;
+      object-fit: cover;
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    .card-content {
+      font-size: 1rem;
+      color: #395b64;
+      padding: 0 8px;
+      line-height: 1.5;
+    }
+
+    .place-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a535c;
+      padding-left: 8px;
+      user-select: text;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .material-icons {
+      font-size: 24px;
+      color: #4e8098;
+    }
+
+    /* Responsivo */
+    @media (max-width: 640px) {
+      main {
+        padding: 24px 12px;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 16px;
+      }
+      .card-content {
+        font-size: 0.95rem;
+        padding: 0 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main tabindex="0" aria-label="Recomendações de viagens que transmitem paz e felicidade">
+    <h1>Recomendações de Viagens Simples</h1>
+    <article class="card" tabindex="0" aria-labelledby="rome-title" role="region">
+      <div class="place-title" id="rome-title">
+        <span class="material-icons" aria-hidden="true">landscape</span> Roma, Itália
+      </div>
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f716b060-0f0c-4bf1-bf81-7b9b37a6e4a5.png" alt="Paz e tranquilidade ao amanhecer sobre o antigo Coliseu em Roma, luz suave e quente" loading="lazy" />
+      <p class="card-content">Experimente o charme atemporal de Roma, passeie por praças serenas e abrace a atmosfera pacífica da história antiga e da arquitetura deslumbrante.</p>
+    </article>
+
+    <article class="card" tabindex="0" aria-labelledby="kyoto-title" role="region">
+      <div class="place-title" id="kyoto-title">
+        <span class="material-icons" aria-hidden="true">spa</span> Quioto, Japão
+      </div>
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/013738b5-9b90-4df5-ba78-83e390eacc0f.png" alt="Jardim zen tranquilo com flores de cerejeira em Quioto, cores suaves de rosa e verde" loading="lazy" />
+      <p class="card-content">Passeie por jardins japoneses pacíficos, medite sob as flores de cerejeira em flor e encontre calma nos templos graciosos de Quioto e na beleza harmônica.</p>
+    </article>
+
+    <article class="card" tabindex="0" aria-labelledby="maldives-title" role="region">
+      <div class="place-title" id="maldives-title">
+        <span class="material-icons" aria-hidden="true">beach_access</span> Maldivas
+      </div>
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/09f5980a-5a92-45c3-8d36-efd30441e6a6.png" alt="Águas turquesas calmas tocando suavemente as praias de areia branca nas Maldivas sob um céu azul ensolarado" loading="lazy" />
+      <p class="card-content">Relaxe em areias brancas e pristinas, ouça as suaves ondas do oceano e sinta a felicidade na pacífica solidão das ilhas Maldivas.</p>
+    </article>
+
+    <article class="card" tabindex="0" aria-labelledby="bali-title" role="region">
+      <div class="place-title" id="bali-title">
+        <span class="material-icons" aria-hidden="true">terrain</span> Bali, Indonésia
+      </div>
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/36c6c3a4-3cd6-433f-a591-85adfff491ee.png" alt="Terraços de arroz verdes exuberantes em Bali com luz suave da manhã criando uma atmosfera pacífica" loading="lazy" />
+      <p class="card-content">Descubra a serenidade feliz das paisagens exuberantes de Bali, desfrute de sorrisos calorosos e mergulhe na experiência cultural pacífica.</p>
+    </article>
+  </main>
+
+  <script>
+    // Desabilitar a rolagem do mouse para toda a página
+    window.addEventListener('wheel', e => {
+      e.preventDefault();
+    }, { passive: false });
+
+    // Também desabilitar teclas do teclado que rolam: Setas, PageUp/Down, Espaço
+    window.addEventListener('keydown', e => {
+      const keysDisablingScroll = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' ', 'Home', 'End'];
+      if (keysDisablingScroll.includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+
+    // Tornar o contêiner principal focável para acessibilidade
+    document.querySelector('main').focus();
+  </script>
+</body>
+</html>
